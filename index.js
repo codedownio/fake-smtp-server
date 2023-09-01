@@ -18,6 +18,7 @@ const config = cli.parse({
   'http-port': ['h', 'HTTP port to listen on', 'number', 1080],
   'http-port-file': [false, 'File to write HTTP port to (useful if you pass --http-port 0)', 'string'],
 
+  'allow-insecure-login': [false, 'Whether to allow login to the SMTP server over an insecure connection', 'boolean'],
   whitelist: ['w', 'Only accept e-mails from these adresses. Accepts multiple e-mails comma-separated', 'string'],
   max: ['m', 'Max number of e-mails to keep', 'number', 100],
   auth: ['a', 'Enable Authentication', 'string'],
@@ -41,6 +42,7 @@ const mails = [];
 
 const server = new SMTPServer({
   authOptional: true,
+  allowInsecureAuth: config['allow-insecure-login'],
   maxAllowedUnauthenticatedCommands: 1000,
   onMailFrom(address, session, cb) {
     if (whitelist.length == 0 || whitelist.indexOf(address.address) !== -1) {
