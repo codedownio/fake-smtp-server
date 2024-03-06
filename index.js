@@ -29,8 +29,8 @@ const whitelist = config.whitelist ? config.whitelist.split(',') : [];
 
 let users = null;
 if (config.auth && !/.+:.+/.test(config.auth)) {
-    cli.error("Please provide authentication details in USERNAME:PASSWORD format");
-    console.log(process.exit(1))
+  cli.error("Please provide authentication details in USERNAME:PASSWORD format");
+  console.log(process.exit(1))
 }
 if (config.auth) {
   let authConfig = config.auth.split(":");
@@ -118,15 +118,11 @@ app.use(function(req, res, next) {
 });
 
 if (users) {
-    app.use(basicAuth({
-        users: users,
-        challenge: true
-    }));
+  app.use(basicAuth({
+    users: users,
+    challenge: true
+  }));
 }
-
-const buildDir = path.join(__dirname, 'build');
-
-app.use(express.static(buildDir));
 
 function emailFilter(filter) {
   return email => {
@@ -157,16 +153,6 @@ app.get('/api/emails', (req, res) => {
 });
 
 app.delete('/api/emails', (req, res) => {
-    mails.length = 0;
-    res.send();
-});
-
-const appServer = app.listen(config['http-port'], config['http-ip'], () => {
-  const addr = appServer.address();
-
-  cli.info("HTTP server listening on http://" + config['http-ip'] +  ":" + addr.port);
-
-  if (config["http-port-file"]) {
-    fs.writeFileSync(config["http-port-file"], addr.port.toString());
-  }
+  mails.length = 0;
+  res.send();
 });

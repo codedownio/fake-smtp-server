@@ -31,33 +31,18 @@
   },
   "dependencies": {
     "cli": "1.0.1",
-    "express": "4.16.4",
-    "express-basic-auth": "1.1.6",
-    "lodash": "4.17.11",
-    "mailparser": "2.4.3",
+    "express": "^4.18.3",
+    "express-basic-auth": "^1.2.1",
+    "lodash": "^4.17.21",
+    "mailparser": "^3.6.9",
     "moment": "^2.30.1",
     "smtp-server": "^3.13.3"
-  },
-  "devDependencies": {
-    "react": "16.8.3",
-    "react-dom": "16.8.3",
-    "react-scripts": "2.1.5",
-    "react-transition-group": "2.6.0",
-    "reactstrap": "7.1.0"
   },
   "engines": {
     "node": ">=8.5.0"
   },
-  "files": [
-    "build"
-  ],
   "scripts": {
-    "start": "react-scripts start",
-    "build": "PUBLIC_URL=./ react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "prepublishOnly": "npm run build",
-    "docker:build": "docker build -t reachfive/fake-smtp-server ."
+    "prepublishOnly": "npm run build"
   },
   "browserslist": [
     ">0.2%",
