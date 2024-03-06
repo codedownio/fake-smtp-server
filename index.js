@@ -14,11 +14,8 @@ const config = cli.parse({
   'smtp-port': ['s', 'SMTP port to listen on', 'number', 1025],
   'smtp-port-file': [false, 'File to write SMTP port to (useful if you pass --smtp-port 0)', 'string'],
 
-  'http-ip': [false, 'IP Address to bind HTTP service to', 'ip', '0.0.0.0'],
-  'http-port': ['h', 'HTTP port to listen on', 'number', 1080],
-  'http-port-file': [false, 'File to write HTTP port to (useful if you pass --http-port 0)', 'string'],
-
   'allow-insecure-login': [false, 'Whether to allow login to the SMTP server over an insecure connection', 'boolean'],
+
   whitelist: ['w', 'Only accept e-mails from these adresses. Accepts multiple e-mails comma-separated', 'string'],
   max: ['m', 'Max number of e-mails to keep', 'number', 100],
   auth: ['a', 'Enable Authentication', 'string'],
