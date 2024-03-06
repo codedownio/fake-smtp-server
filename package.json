@@ -35,8 +35,8 @@
     "express-basic-auth": "1.1.6",
     "lodash": "4.17.11",
     "mailparser": "2.4.3",
-    "moment": "2.24.0",
-    "smtp-server": "3.5.0"
+    "moment": "^2.30.1",
+    "smtp-server": "^3.13.3"
   },
   "devDependencies": {
     "react": "16.8.3",
