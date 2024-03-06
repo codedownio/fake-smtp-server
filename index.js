@@ -156,3 +156,13 @@ app.delete('/api/emails', (req, res) => {
   mails.length = 0;
   res.send();
 });
+
+const appServer = app.listen(config['http-port'], config['http-ip'], () => {
+  const addr = appServer.address();
+
+  cli.info("HTTP server listening on http://" + config['http-ip'] +  ":" + addr.port);
+
+  if (config["http-port-file"]) {
+    fs.writeFileSync(config["http-port-file"], addr.port.toString());
+  }
+});
